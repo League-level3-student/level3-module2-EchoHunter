@@ -40,32 +40,33 @@ public class ThanosSorter extends Sorter {
 	 * you!
 	 */
 	@Override
+	//try figuring out the number of non-zero integers, and go from there (bottom halves)
 	void sort(int[] arr, SortingVisualizer display) {
-		Random rand = new Random();
 		boolean inOrder = false;
-		int pDivider = 2;
-		int snapped = 0;
+		int multiplier = 2;
 		int num = 0;
-		
+		int nonZero = 0;
 		while (!inOrder) {
 			inOrder = true;
-			for (int i1 = 0; i1 < arr.length - 1; i1++) {
-				
-				if (arr[i1] > arr[i1 + 1]) {
+			 for (int i = 0; i < arr.length-1; i++) {
+				if(arr[i] > arr[i+1]) {
 					inOrder = false;
-					break;
-
+					System.out.println(multiplier);
+					num = arr.length/multiplier;
+					for (int j = 0; j <arr.length ; j++) {
+						if(j>num) {
+							arr[j] =0;
+						}
+						
+					}
+				
+				
+				
+				break;
 				}
 			}
-			while(snapped < (arr.length/pDivider)) {
-				num = rand.nextInt(arr.length);
-				if(num != 0) {
-					arr[num] = 0;
-				snapped++;
-				}
-			}
-			pDivider = pDivider*2;
-			display.updateDisplay();
+			
 		}
-	}
+		
+	}		
 }

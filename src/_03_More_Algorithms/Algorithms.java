@@ -31,6 +31,20 @@ public class Algorithms {
     	return primeTOF;
     }
     
+    public static boolean isSquare(int num) {
+    	int numDivis = 0;
+    	for (int i = 0; i < num/2; i++) {
+			if(num%i==0) {
+				numDivis++;
+			}
+		}
+    	if(numDivis == num/2) {
+    		return true;
+    	}
+    	
+    	return false;
+    }
+    
     public static int findBrokenEgg(List<String> eggs) {
         return 0;
     }

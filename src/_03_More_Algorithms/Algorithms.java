@@ -22,7 +22,7 @@ public class Algorithms {
     
     public static boolean isPrime(int num) {
     	boolean primeTOF = true;
-    	for (int i = 1; i < num; i++) {
+    	for (int i = 2; i < num-1; i++) {
 			if(num%i == 0) {
 				primeTOF = false;
 			}
@@ -32,17 +32,27 @@ public class Algorithms {
     }
     
     public static boolean isSquare(int num) {
-    	int numDivis = 0;
-    	for (int i = 0; i < num/2; i++) {
-			if(num%i==0) {
-				numDivis++;
+    	boolean isSquare = false;
+    	for (int i = 1; i <= num; i++) {
+			if(num/i == i) {
+				isSquare = true;
 			}
 		}
-    	if(numDivis == num/2) {
-    		return true;
-    	}
     	
-    	return false;
+    
+  
+    	return isSquare;
+    }
+    
+    public static boolean isCube(int num) {
+    	boolean isCube = false;
+    	for(double i =1;i <= num; i++) {
+    		if((num/i)/i == i) {
+    			isCube = true;
+    		System.out.println(i + " "+num);
+    		}
+    	}
+    	return isCube;
     }
     
     public static int findBrokenEgg(List<String> eggs) {
